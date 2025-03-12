@@ -1,6 +1,212 @@
+
 /******* Change Box Model ***************/
 *,
 *:before,
 *:after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/******* Background Pattern ***************/
+body {
+  background-image: url('/images/site/small_check.jpg');
+  background-size: 100px 100px;
+  background-repeat: repeat; 
+}
+
+/******* Main Container ***************/
+.container {
+  width: 80%;
+  max-width: 900px;
+  background-color: white;
+  margin: 20px auto;
+  padding: 20px;
+  border: 4px solid #009cff;
+  border-radius: 10px;
+}
+
+/******* Header ***************/
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: left;
+  margin-top: 20px;
+}
+
+/******* Navigation ***************/
+nav {
+  background-color: black;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: inline-block;
+}
+
+/******* Car Details Section ***************/
+.car-info {
+  text-align: left;
+  margin-top: 80px;
+  margin-left: 80px;
+}
+
+.car-title {
+  color: #009cff;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.car-features {
+  list-style: none;
+  padding: 10px;
+}
+
+.cta-button {
+  background-color: #009cff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#deloimg {
+  display: block;
+  margin: 20px auto;
+  width: 80%;
+  margin-top: -50px;
+  margin-left: 120px;
+}
+
+/******* Upgrades & Reviews Section ***************/
+.upgrades-reviews {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.upgrades, .reviews {
+  width: 48%;
+}
+
+.reviews {
+  text-align: left;
+  margin-top: 10%;
+}
+
+.upgrade-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.upgrade-grid div {
+  text-align: center;
+}
+
+.upgrade-grid img {
+  width: 80px;
+}
+
+.account-link {
+  display: block;
+  text-align: right;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  margin-right: 20px;
+}
+
+/******* Images Styling ***************/
+#fluximg, #flameimg, #bumperimg, #hubimg {
+  width: 70px;
+  display: block;
+  margin: auto;
+}
+
+/******* Footer ***************/
+footer {
+  text-align: left;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/******* Responsive Design ***************/
+@media screen and (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .car-info {
+    text-align: center;
+    margin: 20px 0;
+  }
+
+  .cta-button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+  }
+
+  #deloimg {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .upgrades-reviews {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .reviews, .upgrades {
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .upgrade-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    width: 100%;
+  }
+
+  .account-link {
+    text-align: center;
+    margin-right: 0;
+    font-size: 16px;
+  }
+
+  footer {
+    text-align: center;
+  }
 }
