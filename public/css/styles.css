@@ -40,6 +40,13 @@ h2 {
   margin-top: 20px;
 }
 
+.myacc {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: blue;
+}
+
 /******* Navigation ***************/
 nav {
   background-color: black;
@@ -143,8 +150,96 @@ footer {
   margin-top: 20px;
 }
 
+#top-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.siteName {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+#tools {
+  font-size: 3.5vw;
+  font-variant: small-caps;
+  display: flex;
+  width: 20%;
+  justify-content: space-evenly;
+}
+
+header > img {
+  max-width: 40%;
+}
+
+header a {
+  text-decoration: none;
+  color: var(--primary-text);
+  display: inline-block;
+  padding: 2vh 0;
+}
+
+/******* Subpages ***************/
+
+#inv-display {
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#inv-display li {
+  margin-bottom: 2em;
+  border: 1px #ccc solid;
+  list-style-type: none;
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+#inv-display li img {
+  object-fit: fill;
+}
+
+@media only screen and (min-width: 768px) {
+  #inv-display {
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+  }
+
+  #inv-display h2 {
+    font-size: 1rem;
+  }
+
+  #inv-display li {
+    max-width: 200px;
+    flex: 1 0 auto;
+    text-align: center;
+    height: 250px;
+    display: grid;
+    border-radius: 10px;
+  }
+
+  #inv-display a {
+    height: 150px;
+  }
+
+  #inv-display img {
+    border-radius: 10px 10px;
+  }
+
+  #inv-display div {
+    width: 100%;
+    height: 100px;
+  }
+} 
+
 /******* Responsive Design ***************/
 @media screen and (max-width: 768px) {
+  #tools {
+    font-size: inherit;
+  }
+
   .container {
     width: 95%;
     padding: 15px;
@@ -210,3 +305,63 @@ footer {
     text-align: center;
   }
 }
+
+/******* Custom ***************/
+
+/* Navigation styles */
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  background-color: #333;
+  border-radius: 5px;
+  padding: 10px;
+  justify-content: center;
+}
+
+.nav-item {
+  margin: 0 10px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  transition: background 0.3s ease;
+}
+
+.nav-link:hover {
+  background-color: #555;
+  border-radius: 3px;
+}
+
+/* Car Details styles
+
+.vehicle-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.vehicle-image {
+  max-width: 50%;
+  height: auto;
+}
+
+.vehicle-details {
+  flex: 1;
+}
+
+@media (max-width: 768px) {
+  .vehicle-container {
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  .vehicle-image {
+      max-width: 100%;
+  }
+}
+*/

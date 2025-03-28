@@ -12,6 +12,8 @@ const app = express();
 const static = require("./routes/static");
 const inventoryRoute = require("./routes/inventoryRoute");
 const expressEjsLayouts = require("express-ejs-layouts");
+// const inventoryRoutes = require('./routes/inventoryRoutes');
+
 
 /* ***********************
  * View Engine and Templates
@@ -19,6 +21,7 @@ const expressEjsLayouts = require("express-ejs-layouts");
 app.set("view engine", "ejs");
 app.use(expressEjsLayouts);
 app.set("layout", "./layouts/layout"); // not at views root
+// app.use('/', inventoryRoutes);
 
 /* ***********************
  * Routes

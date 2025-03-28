@@ -26,3 +26,19 @@ async function getInventoryByClassificationId(classification_id) {
 }
 
 module.exports = {getClassifications, getInventoryByClassificationId};
+
+//////////////////
+
+/* const db = require('../database'); // Assume a database connection file
+
+async function getVehicleById(vehicleId) {
+    try {
+        const result = await db.query("SELECT * FROM inventory WHERE id = $1", [vehicleId]);
+        return result.rows[0]; 
+    } catch (error) {
+        console.error("Database error:", error);
+        return null;
+    }
+}
+
+module.exports = { getVehicleById }; */
