@@ -82,22 +82,22 @@ Util.buildClassificationGrid = async function (data) {
   return grid;
 };
 
-module.exports = Util;
-
-///////
-
-/* function formatVehicleHTML(vehicle) {
+Util.buildVehicleDetail = async function (vehicle) {
   return `
       <div class="vehicle-container">
-          <img src="${vehicle.image_url}" alt="${vehicle.make} ${vehicle.model}" class="vehicle-image">
+          <img src="${vehicle.inv_image}" alt="${vehicle.inv_make} ${vehicle.inv_model}" class="vehicle-image">
           <div class="vehicle-details">
-              <h2>${vehicle.year} ${vehicle.make} ${vehicle.model}</h2>
-              <p><strong>Price:</strong> $${vehicle.price.toLocaleString()}</p>
-              <p><strong>Mileage:</strong> ${vehicle.mileage.toLocaleString()} miles</p>
-              <p><strong>Description:</strong> ${vehicle.description}</p>
+              <h2>${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model}</h2>
+              <p><strong>Price:</strong> $${vehicle.inv_price.toLocaleString()}</p>
+              <p><strong>Mileage:</strong> ${vehicle.inv_miles.toLocaleString()} miles</p>
+              <p><strong>Description:</strong> ${vehicle.inv_description}</p>
           </div>
       </div>
   `;
 }
 
-module.exports = { formatVehicleHTML }; */
+module.exports = Util;
+
+///////
+
+// module.exports = { formatVehicleHTML };

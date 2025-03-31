@@ -1,4 +1,5 @@
 const invModel = require("../models/inventory-model")
+const { get } = require("../routes/static")
 const utilities = require("../utilities/")
 
 const invCont = {}
@@ -19,22 +20,21 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
-module.exports = invCont
-
 ///////////////////
 
-/* async function getVehicleDetail(req, res) {
+invCont.getVehicleDetail = async function (req, res) {
   const vehicleId = req.params.id;
   try {
-      const vehicle = await inventoryModel.getVehicleById(vehicleId);
+      const vehicle = await invModel.getVehicleById(vehicleId);
       if (!vehicle) {
           return res.status(404).send("Vehicle not found");
       }
 
-      const vehicleHTML = utilities.formatVehicleHTML(vehicle);
-
+      const vehicleHTML = await utilities.buildVehicleDetail(vehicle);
+      let nav = await utilities.getNav()
       res.render('inventory/detail', {
-          title: `${vehicle.make} ${vehicle.model}`,
+          title: `${vehicle.inv_make} ${vehicle.inv_model}`,
+          nav, 
           vehicleHTML
       });
   } catch (error) {
@@ -43,4 +43,5 @@ module.exports = invCont
   }
 }
 
-module.exports = { getVehicleDetail }; */
+// module.exports = { getVehicleDetail, invCont };
+module.exports = invCont

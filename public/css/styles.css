@@ -304,6 +304,19 @@ header a {
   footer {
     text-align: center;
   }
+
+  .nav-list {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: #333;
+    border-radius: 5px;
+    padding: 10px;
+    flex-direction: column;
+}
+  
 }
 
 /******* Custom ***************/
@@ -336,7 +349,7 @@ header a {
   border-radius: 3px;
 }
 
-/* Car Details styles
+/* Car Details styles */ 
 
 .vehicle-container {
   display: flex;
@@ -354,6 +367,16 @@ header a {
   flex: 1;
 }
 
+h1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+p {
+  padding-top: 10px;
+  font-size: 18px;
+}
+
 @media (max-width: 768px) {
   .vehicle-container {
       flex-direction: column;
@@ -364,4 +387,3 @@ header a {
       max-width: 100%;
   }
 }
-*/
