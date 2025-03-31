@@ -43,5 +43,11 @@ invCont.getVehicleDetail = async function (req, res) {
   }
 }
 
-// module.exports = { getVehicleDetail, invCont };
+/* ***************************
+ * Handles footer error link
+ * ************************** */
+invCont.throwError = async function (req, res) {
+  throw new Error("I am an intentional error");
+};
+
 module.exports = invCont
