@@ -10,7 +10,7 @@ router.get("/type/:classificationId", invController.buildByClassificationId);
 // Route to get vehicle details
 router.get('/detail/:id', invController.getVehicleDetail);
 
-// Broken route
+// Broken route to test error handling
 router.get("/broken", utilities.handleErrors(invController.throwError));
 
 module.exports = router;
