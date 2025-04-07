@@ -43,6 +43,43 @@ invCont.getVehicleDetail = async function (req, res) {
   }
 }
 
+invCont.buildManagementView = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  res.render("./inventory/management", {
+    title: "Vehicle Management",
+    nav,
+    errors: null,
+    flashMessage: null
+  });
+};
+
+invCont.buildAddClassificationView = (req, res) => {
+  res.render("inventory/add-classification", {
+    message: req.flash("message"),
+    errors: req.flash("errors")
+  });
+};
+
+invCont.addClassification = async (req, res) => {
+  const { classification_name } = req.body;
+  try {
+    await invModel.addClassification(classification_name);
+
+    // Refresh nav dynamically here (if using SPA or fetch call)
+    const updatedNav = await invModel.getNav(); // assume it gets nav structure
+
+    req.flash("message", "Classification added successfully.");
+    res.render("inventory/management", {
+      message: req.flash("message"),
+      nav: updatedNav
+    });
+  } catch (error) {
+    req.flash("errors", [{ msg: "Failed to add classification. Try again." }]);
+    res.redirect("/inventory/add-classification");
+  }
+};
+
+
 /* ***************************
  * Handles footer error link
  * ************************** */

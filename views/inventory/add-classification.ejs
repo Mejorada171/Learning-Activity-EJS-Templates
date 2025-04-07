@@ -1,44 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add New Classification</title>
-    <script>
-        function validateForm() {
-            const classificationName = document.getElementById('classificationName').value;
-            const regex = /^[a-zA-Z0-9]+$/;
-            if (!regex.test(classificationName)) {
-                alert('Classification name must not contain spaces or special characters.');
-                return false;
-            }
-            return true;
-        }
-    </script>
-</head>
-<body>
-    <h1>Add New Classification</h1>
+<%- include('../partials/header') %>
+<%- include('../partials/navigation') %>
 
-    <!-- Flash Message -->
-    <% if (flashMessage) { %>
-        <div class="flash-message">
-            <p><%= flashMessage %></p>
-        </div>
-    <% } %>
+<main>
+  <h1>Add New Classification</h1>
 
-    <!-- Error Message -->
-    <% if (errorMessage) { %>
-        <div class="error-message">
-            <p><%= errorMessage %></p>
-        </div>
-    <% } %>
+  <% if (message) { %>
+    <div class="flash-message success"><%= message %></div>
+  <% } %>
+  <% if (errors && errors.length) { %>
+    <div class="flash-message error">
+      <ul>
+        <% errors.forEach(err => { %>
+          <li><%= err.msg %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
 
-    <!-- Classification Form -->
-    <form action="/inv/add-classification" method="POST" onsubmit="return validateForm();">
-        <label for="classificationName">Classification Name:</label>
-        <input type="text" id="classificationName" name="classificationName" required>
-        <p>Note: The classification name must not contain spaces or special characters.</p>
-        <button type="submit">Add Classification</button>
-    </form>
-</body>
-</html>
+  <form id="classificationForm" action="/views/inventory/add-classification.ejs" method="POST">
+    <label for="classification_name">Classification Name</label>
+    <input 
+      type="text" 
+      id="classification_name" 
+      name="classification_name" 
+      required 
+      pattern="^[A-Za-z0-9]+$"
+      title="No spaces or special characters allowed."
+    />
+    <button type="submit">Add Classification</button>
+  </form>
+</main>
+
+<script src="/public/js/validate-classification.js"></script>
+<%- include('../partials/footer') %>

@@ -37,4 +37,14 @@ async function getVehicleById(vehicleId) {
     }
 }
 
+exports.addClassification = async (name) => {
+  const sql = "INSERT INTO classification (classification_name) VALUES (?)";
+  await pool.execute(sql, [name]);
+};
+
+exports.getNav = async () => {
+  const [rows] = await pool.execute("SELECT * FROM classification");
+  return rows;
+};
+
 module.exports = { getClassifications, getInventoryByClassificationId, getVehicleById };
