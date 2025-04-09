@@ -54,7 +54,7 @@ invCont.buildManagementView = async function (req, res, next) {
 };
 
 invCont.buildAddClassificationView = (req, res) => {
-  res.render("inventory/add-classification", {
+  res.render("./inventory/add-classification", {
     message: req.flash("message"),
     errors: req.flash("errors")
   });

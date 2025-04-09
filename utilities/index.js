@@ -101,6 +101,11 @@ Util.buildVehicleDetail = async function (vehicle) {
  * Wrap other function in this for 
  * General Error Handling
  **************************************** */
-Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
+// Example: utilities/index.js
 
-module.exports = Util;
+// Add the error handler
+Util.handleErrors = fn => (req, res, next) =>
+  Promise.resolve(fn(req, res, next)).catch(next)
+
+module.exports = Util
+
