@@ -16,7 +16,7 @@ const static = require("./routes/static");
 const inventoryRoute = require("./routes/inventoryRoute");
 const expressEjsLayouts = require("express-ejs-layouts");
 const utilities = require("./utilities");
-const bodyParser = require("body-parser");
+const bodyParser = require("body-parser")
 
 // Express Messages Middleware
 app.use(require('connect-flash')())
@@ -39,6 +39,8 @@ app.use(session({
   name: 'sessionId',
 }))
 
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 /* ***********************
  * View Engine and Templates
  *************************/

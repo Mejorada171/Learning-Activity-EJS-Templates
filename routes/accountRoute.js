@@ -8,6 +8,9 @@ const utilities = require("../utilities/");
 router1.get("/login", utilities.handleErrors(accController.buildLogin));
 
 // Route to build register view
-router1.get("/register", utilities.handleErrors(accController.buildRegister));
+router1.get("/registration", utilities.handleErrors(accController.buildRegister));
+
+
+router1.post('/registration', utilities.handleErrors(accController.registerAccount))
 
 module.exports = router1;
