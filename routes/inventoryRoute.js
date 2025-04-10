@@ -16,8 +16,10 @@ router.get("/", utilities.handleErrors(invController.buildManagementView));
 // Broken route to test error handling
 router.get("/broken", utilities.handleErrors(invController.throwError));
 
-router.get("/", utilities.handleErrors(invController.buildAddClassificationView));
+router.get("/add-classification", utilities.handleErrors(invController.buildAddClassificationView));
 
 router.get("/", utilities.handleErrors(invController.addClassification));
+
+router.get("/add-inventory", utilities.handleErrors(invController.buildAddInventoryView));
 
 module.exports = router;

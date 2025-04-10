@@ -53,10 +53,13 @@ invCont.buildManagementView = async function (req, res, next) {
   });
 };
 
-invCont.buildAddClassificationView = (req, res) => {
+invCont.buildAddClassificationView = async function (req, res) {
+  let nav = await utilities.getNav();
   res.render("./inventory/add-classification", {
-    message: req.flash("message"),
-    errors: req.flash("errors")
+    title: "Vehicle Management",
+    nav,
+    errors: null,
+    message: null
   });
 };
 
@@ -79,6 +82,17 @@ invCont.addClassification = async (req, res) => {
   }
 };
 
+invCont.buildAddInventoryView = async function (req, res) {
+  let nav = await utilities.getNav();
+  const classificationList = await utilities.buildClassificationList();
+  res.render("./inventory/add-inventory", {
+    title: "Vehicle Management",
+    nav,
+    classificationList,
+    errors: null,
+    message: null
+  });
+};
 
 /* ***************************
  * Handles footer error link
